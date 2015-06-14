@@ -90,6 +90,7 @@
 
     <p>
         <button id="save_button">Save</button>
+        <button id="cancel_button">Cancel</button>
     </p>
 
 </body>
@@ -122,15 +123,21 @@
         return options;
     };
 
-    $("#save_button").click(
+
+
+    document.getElementById("cancel_button").addEventListener('click', function() {
+        document.location = "pebblejs://close#cancel";
+    }, false);
+
+     document.getElementById("save_button").addEventListener('click',
         function () {
             console.log("Submit");
             var options = saveOptions();
 
-            // Set the return URL depending on the runtime environment
+            // Set the return URL depending on the runtime environment (emulator or Pebble Phone App)
             var return_to = getQueryParam('return_to', 'pebblejs://close#');
             document.location.href = return_to + encodeURIComponent(JSON.stringify(options));
         }
-    );
+    , false);
 
 </script>
