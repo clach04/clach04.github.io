@@ -12,7 +12,6 @@
             font-size:20pt;
         }
     </style>
-    <script src="http://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
@@ -117,8 +116,10 @@
 
     //Setup to allow easy adding more options later
     function saveOptions() {
+        var e = document.getElementById("time_color");
+        var hex_color_str = e.options[e.selectedIndex].value; // or text for display
         var options = {
-            'color': $("#time_color option:selected").val()
+            'color': hex_color_str
         }
         return options;
     };
