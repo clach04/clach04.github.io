@@ -126,7 +126,9 @@
 
 
     document.getElementById("cancel_button").addEventListener('click', function() {
-        document.location = "pebblejs://close#cancel";
+        //var return_to = getQueryParam('return_to', 'pebblejs://close#');
+        var return_to = getQueryParam('return_to', pebblejs://close#cancel');
+        document.location = return_to;
     }, false);
 
      document.getElementById("save_button").addEventListener('click',
