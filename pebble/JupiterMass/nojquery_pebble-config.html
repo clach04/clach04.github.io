@@ -11,6 +11,55 @@
             font-family:Arial;
             font-size:20pt;
         }
+
+        /* using http://www.bestcssbuttongenerator.com/ */
+        .save_btn {
+            background-color:#44c767;
+            -moz-border-radius:28px;
+            -webkit-border-radius:28px;
+            border-radius:28px;
+            border:1px solid #18ab29;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:17px;
+            padding:16px 31px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #2f6627;
+        }
+        .save_btn:hover {
+            background-color:#5cbf2a;
+        }
+        .save_btn:active {
+            position:relative;
+            top:1px;
+        }
+
+    .cancel_btn {
+        background-color:#ff0000;
+        -moz-border-radius:28px;
+        -webkit-border-radius:28px;
+        border-radius:28px;
+        border:1px solid #ab1934;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:17px;
+        padding:16px 31px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #662828;
+    }
+    .cancel_btn:hover {
+        background-color:#bd2a2a;
+    }
+    .cancel_btn:active {
+        position:relative;
+        top:1px;
+    }
+
+
     </style>
 </head>
 
@@ -18,6 +67,9 @@
     <h1>Color Watch Face config:</h1>
     <br><br>
     <p>Time and Date color:
+        <!--
+            TODO use colors for background in selection option? May need to do this in javascript only
+        -->
         <select id="time_color" name="time_color">
             <option value="AAFFAA">MintGreen</option>
             <option value="5500FF">ElectricUltramarine</option>
@@ -99,8 +151,8 @@
 
 
     <p>
-        <button id="save_button">Save</button>
-        <button id="cancel_button">Cancel</button>
+        <button id="save_button" class="save_btn">Save</button>
+        <button id="cancel_button" class="cancel_btn">Cancel</button>
     </p>
 
 </body>
@@ -160,6 +212,7 @@
         }
     , false);
 
+    // TODO on ready...
     //document.getElementById("vibrate_disconnect").selectedIndex = 1; // works
     document.getElementById('vibrate_disconnect').value = getQueryParam('vibrate_disconnect', 'off');
     var time_color = getQueryParam('color', 'FFFFAA');
