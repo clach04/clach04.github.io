@@ -65,7 +65,14 @@
 
 <body>
     <h1>Color Watch Face config:</h1>
-    <br><br>
+
+    <!--
+    <p>
+        <button id="save_button" class="save_btn">Save</button>
+        <button id="cancel_button" class="cancel_btn">Cancel</button>
+    </p>
+    -->
+
     <p>Time and Date color:
         <!--
             TODO use colors for background in selection option? May need to do this in javascript only
@@ -201,6 +208,7 @@
         }
     , false);
 
+    // TODO do this for all items with the same id (e.g. allow two save buttons, top and bottom of page
      document.getElementById("save_button").addEventListener('click',
         function () {
             console.log("Submit");
