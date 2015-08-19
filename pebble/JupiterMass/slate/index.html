@@ -71,7 +71,8 @@
       'vibrate_disconnect': document.getElementById('vibrate_disconnect_checkbox').checked
     };
 
-    localStorage['color'] = options['time_color']; // FIXME color is for backwards compat...
+    options['color'] = options['time_color']; // FIXME color is for backwards compat...
+
     // Save for next launch
     localStorage['time_color'] = options['color'];
     localStorage['vibrate_disconnect'] = options['vibrate_disconnect'];
