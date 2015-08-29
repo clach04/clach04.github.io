@@ -121,7 +121,9 @@
 
     // Set the return URL depending on the runtime environment
     var return_to = getQueryParam('return_to', 'pebblejs://close#');
-    document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
+    //document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
+    // DEBUG simple return
+    document.location = return_to + encodeURIComponent(JSON.stringify({'time_color': '000000', 'background_color': 'ffffff'}));
   });
 
   (function() {
