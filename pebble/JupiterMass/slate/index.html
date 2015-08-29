@@ -158,9 +158,9 @@
 
   (function() {
     // pick URL parameters...
-    var color = getQueryParam('color', '000000'); // FIXME color is for backwards compat...
+    var color = getQueryParam('color', 'FFFFFF'); // FIXME color is for backwards compat...
     document.getElementById('time_color_picker').value = getHexStrColorWith0x(getQueryParam('time_color', color));
-    document.getElementById('background_color_picker').value = getHexStrColorWith0x(getQueryParam('background_color', 'FFFFFF'));
+    document.getElementById('background_color_picker').value = getHexStrColorWith0x(getQueryParam('background_color', '000000'));
     document.getElementById('vibrate_disconnect_checkbox').checked = getBoolValue(getQueryParam('vibrate_disconnect', 'off'));
   })();
   </script>
