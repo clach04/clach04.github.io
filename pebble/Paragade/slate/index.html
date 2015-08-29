@@ -71,10 +71,6 @@
 
     //options['color'] = options['time_color']; // color is for backwards compat... NOT NEEDED for Paragade
 
-    // Save for next launch
-    localStorage['time_color'] = options['time_color'];
-    localStorage['background_color'] = options['background_color'];
-
     console.log('Got options: ' + JSON.stringify(options));
     return options;
   }
@@ -101,13 +97,9 @@
   });
 
   (function() {
-    // FIXME pick these up as URL parameters...
-
-    // Load any previously saved configuration, if available
-    if(localStorage['time_color']) {
-      document.getElementById('time_color_picker').value = localStorage['time_color'];
-      document.getElementById('background_color_picker').value = localStorage['background_color'];
-    }
+        // pick URL parameters...
+        document.getElementById('time_color_picker').value = '0x' + getQueryParam('time_color', '000000');
+        document.getElementById('background_color_picker').value = '0x' + getQueryParam('background_color', 'FFFFFF');
   })();
   </script>
 </html>
