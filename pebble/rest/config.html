@@ -87,7 +87,7 @@
             // Set the return URL depending on the runtime environment (emulator or Pebble Phone App)
             var return_to = getQueryParam('return_to', 'pebblejs://close#');
           localStorage.settings = settings;
-            document.location = return_to + encodeURIComponent(Jsettings);
+            document.location = return_to + encodeURIComponent(settings);
         });
 
       });
