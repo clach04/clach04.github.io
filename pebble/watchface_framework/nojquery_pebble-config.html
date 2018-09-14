@@ -188,6 +188,34 @@
         return defaultValue || false;
     }
 
+    function force_on_off(in_value)
+    {
+        var result=false;
+
+        switch (in_value)
+        {
+            case true:
+            case 'true':
+            case 'True':
+            case 'TRUE':
+            case 1:
+            case '1':
+            case 'on':
+            case 'On':
+            case 'ON':
+            case 'yes':
+            case 'Yes':
+            case 'YES':
+            case 'Y':
+                result = 'on';
+                break;
+            default:
+                result = 'off';
+                break;
+        }
+        return result;
+    }
+
     //Setup to allow easy adding more options later
     function saveOptions() {
         var v = document.getElementById("vibrate_disconnect");
@@ -226,7 +254,7 @@
 
     // TODO on ready...
     //document.getElementById("vibrate_disconnect").selectedIndex = 1; // works
-    document.getElementById('vibrate_disconnect').value = getQueryParam('vibrate_disconnect', 'off');
+    document.getElementById('vibrate_disconnect').value = force_on_off(getQueryParam('vibrate_disconnect', 'off'));
     var time_color = getQueryParam('time_color', 'FFFFAA');
     document.getElementById('time_color').value = getQueryParam('time_color', time_color);
     // TODO set background and foreground colors in drop down select option
