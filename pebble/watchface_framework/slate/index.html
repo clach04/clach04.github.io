@@ -157,7 +157,7 @@
     console.log('Cancel');
 
     // Set the return URL depending on the runtime environment
-    var return_to = getQueryParam('return_to', 'pebblejs://close');
+    var return_to = getQueryParam('return_to', 'pebblejs://close#cancel');
     document.location = return_to;
   });
 
