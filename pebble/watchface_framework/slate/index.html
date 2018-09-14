@@ -68,11 +68,15 @@
       </div>
     </div>
 
-    <!-- TODO Save rather than submit? -->
-    <!-- TODO Cancel button? -->
+    <!-- TODO Cancel button on Right hand side (rather than underneath)? -->
     <div class='item-container'>
       <div class='button-container'>
         <input id='submit_button' type='button' class='item-button' value='Save'>
+      </div>
+    </div>
+    <div class='item-container'>
+      <div class='button-container'>
+        <input id='cancel_button' type='button' class='item-button' value='Cancel'>
       </div>
     </div>
   </body>
@@ -148,6 +152,15 @@
     return defaultValue || false;
   }
  
+  var cancelButton = document.getElementById('cancel_button');
+  cancelButton.addEventListener('click', function() {
+    console.log('Cancel');
+
+    // Set the return URL depending on the runtime environment
+    var return_to = getQueryParam('return_to', 'pebblejs://close');
+    document.location = return_to;
+  });
+
   var submitButton = document.getElementById('submit_button');
   submitButton.addEventListener('click', function() {
     console.log('Submit');
