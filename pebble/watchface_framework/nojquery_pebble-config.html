@@ -1,0 +1,234 @@
+<html>
+<head>
+    <title>colour Pebble App</title>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        /* Local CSS, try and avoid external dependencies even if results are not as pretty as when using hosted solutions like http://purecss.io/ */
+        p {
+            font-family:Arial;
+            font-size:11pt;
+        }
+
+        h1 {
+            font-family:Arial;
+            font-size:20pt;
+        }
+
+        /* Buttons */
+        /* using http://www.bestcssbuttongenerator.com/ */
+        .save_btn {
+            background-color:#44c767;
+            -moz-border-radius:28px;
+            -webkit-border-radius:28px;
+            border-radius:28px;
+            border:1px solid #18ab29;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:17px;
+            padding:16px 31px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #2f6627;
+        }
+        .save_btn:hover {
+            background-color:#5cbf2a;
+        }
+        .save_btn:active {
+            position:relative;
+            top:1px;
+        }
+
+        .cancel_btn {
+            background-color:#ff0000;
+            -moz-border-radius:28px;
+            -webkit-border-radius:28px;
+            border-radius:28px;
+            border:1px solid #ab1934;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:17px;
+            padding:16px 31px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #662828;
+        }
+        .cancel_btn:hover {
+            background-color:#bd2a2a;
+        }
+        .cancel_btn:active {
+            position:relative;
+            top:1px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Color Watch Face config:</h1>
+
+    <!--
+    <p>
+        <button id="save_button" class="save_btn">Save</button>
+        <button id="cancel_button" class="cancel_btn">Cancel</button>
+    </p>
+    -->
+
+    <p>Time and Date color:
+        <!--
+            show colors in background in selection options. NOTE use inverted color for text
+        -->
+        <select id="time_color" name="time_color" style="background: #AAFFAA; color: #000000;" onChange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor; this.style.color=this.options[this.selectedIndex].style.color">
+            <option value="AAFFAA" style="background: #AAFFAA; color: #550055">MintGreen</option>
+            <option value="5500FF" style="background: #5500FF; color: #aaff00">ElectricUltramarine</option>
+            <option value="FF0055" style="background: #FF0055; color: #00ffaa">Folly</option>
+            <option value="55FFFF" style="background: #55FFFF; color: #aa0000">ElectricBlue</option>
+            <option value="555500" style="background: #555500; color: #aaaaff">ArmyGreen</option>
+            <option value="0000AA" style="background: #0000AA; color: #ffff55">DukeBlue</option>
+            <option value="5555FF" style="background: #5555FF; color: #aaaa00">VeryLightBlue</option>
+            <option value="00AAAA" style="background: #00AAAA; color: #ff5555">TiffanyBlue</option>
+            <option value="55AAFF" style="background: #55AAFF; color: #aa5500">PictonBlue</option>
+            <option value="5500AA" style="background: #5500AA; color: #aaff55">Indigo</option>
+            <option value="AAFF00" style="background: #AAFF00; color: #5500ff">SpringBud</option>
+            <option value="55FF00" style="background: #55FF00; color: #aa00ff">BrightGreen</option>
+            <option value="000055" style="background: #000055; color: #ffffaa">OxfordBlue</option>
+            <option value="55AAAA" style="background: #55AAAA; color: #aa5555">CadetBlue</option>
+            <option value="AA5555" style="background: #AA5555; color: #55aaaa">RoseVale</option>
+            <option value="FF00AA" style="background: #FF00AA; color: #00ff55">FashionMagenta</option>
+            <option value="FFAAAA" style="background: #FFAAAA; color: #005555">Melon</option>
+            <option value="AA0055" style="background: #AA0055; color: #55ffaa">JazzberryJam</option>
+            <option value="AA55AA" style="background: #AA55AA; color: #55aa55">Purpureus</option>
+            <option value="550055" style="background: #550055; color: #aaffaa">ImperialPurple</option>
+            <option value="005500" style="background: #005500; color: #ffaaff">DarkGreen</option>
+            <option value="0000FF" style="background: #0000FF; color: #ffff00">Blue</option>
+            <option value="5555AA" style="background: #5555AA; color: #aaaa55">Liberty</option>
+            <option value="55AA00" style="background: #55AA00; color: #aa55ff">KellyGreen</option>
+            <option value="55AA55" style="background: #55AA55; color: #aa55aa">MayGreen</option>
+            <option value="AA00FF" style="background: #AA00FF; color: #55ff00">VividViolet</option>
+            <option value="FFAA55" style="background: #FFAA55; color: #0055aa">Rajah</option>
+            <option value="FF55AA" style="background: #FF55AA; color: #00aa55">BrilliantRose</option>
+            <option value="AAAAAA" style="background: #AAAAAA; color: #555555">LightGray</option>
+            <option value="00AAFF" style="background: #00AAFF; color: #ff5500">VividCerulean</option>
+            <option value="550000" style="background: #550000; color: #aaffff">BulgarianRose</option>
+            <option value="00FF00" style="background: #00FF00; color: #ff00ff">Green</option>
+            <option value="AA5500" style="background: #AA5500; color: #55aaff">WindsorTan</option>
+            <option value="00AA55" style="background: #00AA55; color: #ff55aa">JaegerGreen</option>
+            <option value="555555" style="background: #555555; color: #aaaaaa">DarkGray</option>
+            <option value="FF5500" style="background: #FF5500; color: #00aaff">Orange</option>
+            <option value="0055FF" style="background: #0055FF; color: #ffaa00">BlueMoon</option>
+            <option value="000000" style="background: #000000; color: #ffffff">Black</option>
+            <option value="00FFFF" style="background: #00FFFF; color: #ff0000">Cyan</option>
+            <option value="AA0000" style="background: #AA0000; color: #55ffff">DarkCandyAppleRed</option>
+            <option value="AAAA00" style="background: #AAAA00; color: #5555ff">Limerick</option>
+            <option value="0055AA" style="background: #0055AA; color: #ffaa55">CobaltBlue</option>
+            <option value="FFFFAA" style="background: #FFFFAA; color: #000055">PastelYellow</option>
+            <option value="FF55FF" style="background: #FF55FF; color: #00aa00">ShockingPink</option>
+            <option value="55FF55" style="background: #55FF55; color: #aa00aa">ScreaminGreen</option>
+            <option value="FF0000" style="background: #FF0000; color: #00ffff">Red</option>
+            <option value="FFAA00" style="background: #FFAA00; color: #0055ff">ChromeYellow</option>
+            <option value="AA55FF" style="background: #AA55FF; color: #55aa00">LavenderIndigo</option>
+            <option value="AAFF55" style="background: #AAFF55; color: #5500aa">Inchworm</option>
+            <option value="00FF55" style="background: #00FF55; color: #ff00aa">Malachite</option>
+            <option value="55FFAA" style="background: #55FFAA; color: #aa0055">MediumAquamarine</option>
+            <option value="FFFF00" style="background: #FFFF00; color: #0000ff">Yellow</option>
+            <option value="FF00FF" style="background: #FF00FF; color: #00ff00">Magenta</option>
+            <option value="AAFFFF" style="background: #AAFFFF; color: #550000">Celeste</option>
+            <option value="FFAAFF" style="background: #FFAAFF; color: #005500">RichBrilliantLavender</option>
+            <option value="AAAAFF" style="background: #AAAAFF; color: #555500">BabyBlueEyes</option>
+            <option value="005555" style="background: #005555; color: #ffaaaa">MidnightGreen</option>
+            <option value="AA00AA" style="background: #AA00AA; color: #55ff55">Purple</option>
+            <option value="FFFFFF" style="background: #FFFFFF; color: #000000">White</option>
+            <option value="00FFAA" style="background: #00FFAA; color: #ff0055">MediumSpringGreen</option>
+            <option value="FFFF55" style="background: #FFFF55; color: #0000aa">Icterine</option>
+            <option value="FF5555" style="background: #FF5555; color: #00aaaa">SunsetOrange</option>
+            <option value="AAAA55" style="background: #AAAA55; color: #5555aa">Brass</option>
+            <option value="00AA00" style="background: #00AA00; color: #ff55ff">IslamicGreen</option>
+        </select>
+    </p>
+
+    <!--
+        <label>Vibrate on Bluetooth disconnect</label></td><td><input type="checkbox" name="vibrate_disconnect" id="vibrate_disconnect"/>
+    -->
+    <p>
+        <label>Vibrate on Bluetooth disconnect:</label>
+        <select id="vibrate_disconnect" name="vibrate_disconnect">
+            <option value="off">Off</option>
+            <option value="on">On</option>
+        </select>
+    </p>
+
+
+    <p>
+        <button id="save_button" class="save_btn">Save</button>
+        <button id="cancel_button" class="cancel_btn">Cancel</button>
+    </p>
+
+</body>
+</html>
+
+
+<script>
+    // Local javascript, try and avoid external dependencies even if results are not as complete as other options such as https://jquery.com/, http://zeptojs.com/
+    // http://youmightnotneedjquery.com/
+
+    // get URL query variables
+    function getQueryParam(variable, defaultValue) {
+        // Find all URL parameters
+        var query = location.search.substring(1);
+        var vars = query.split('&');
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split('=');
+
+            // If the query variable parameter is found, decode it to use and return it for use
+            if (pair[0] === variable) {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        return defaultValue || false;
+    }
+
+    //Setup to allow easy adding more options later
+    function saveOptions() {
+        var v = document.getElementById("vibrate_disconnect");
+        var e = document.getElementById("time_color");
+        var hex_color_str = e.options[e.selectedIndex].value; // or text for display
+        var options = {
+            'time_color': hex_color_str,
+            'vibrate_disconnect': v.value
+        }
+        return options;
+    };
+
+
+
+     document.getElementById("cancel_button").addEventListener('click',
+        function () {
+            console.log("Cancel");
+
+            // Set the return URL depending on the runtime environment (emulator or Pebble Phone App)
+            var return_to = getQueryParam('return_to', 'pebblejs://close#cancel');
+            document.location.href = return_to;
+        }
+    , false);
+
+    // TODO do this for all items with the same id (e.g. allow two save buttons, top and bottom of page
+     document.getElementById("save_button").addEventListener('click',
+        function () {
+            console.log("Submit");
+            var options = saveOptions();
+
+            // Set the return URL depending on the runtime environment (emulator or Pebble Phone App)
+            var return_to = getQueryParam('return_to', 'pebblejs://close#');
+            document.location.href = return_to + encodeURIComponent(JSON.stringify(options));
+        }
+    , false);
+
+    // TODO on ready...
+    //document.getElementById("vibrate_disconnect").selectedIndex = 1; // works
+    document.getElementById('vibrate_disconnect').value = getQueryParam('vibrate_disconnect', 'off');
+    var time_color = getQueryParam('time_color', 'FFFFAA');
+    document.getElementById('time_color').value = getQueryParam('time_color', time_color);
+    // TODO set background and foreground colors in drop down select option
+
+</script>
