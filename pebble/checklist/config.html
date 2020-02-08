@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>Checklist Pebble App</title>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        /* Local CSS, try and avoid external dependencies even if results are not as pretty as when using hosted solutions like http://purecss.io/ */
+        p {
+            font-family:Arial;
+            font-size:11pt;
+        }
+
+        h1 {
+            font-family:Arial;
+            font-size:20pt;
+        }
+
+        /* Buttons */
+        /* using http://www.bestcssbuttongenerator.com/ */
+        .save_btn {
+            background-color:#44c767;
+            -moz-border-radius:28px;
+            -webkit-border-radius:28px;
+            border-radius:28px;
+            border:1px solid #18ab29;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:17px;
+            padding:16px 31px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #2f6627;
+        }
+        .save_btn:hover {
+            background-color:#5cbf2a;
+        }
+        .save_btn:active {
+            position:relative;
+            top:1px;
+        }
+
+        .cancel_btn {
+            background-color:#ff0000;
+            -moz-border-radius:28px;
+            -webkit-border-radius:28px;
+            border-radius:28px;
+            border:1px solid #ab1934;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:17px;
+            padding:16px 31px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #662828;
+        }
+        .cancel_btn:hover {
+            background-color:#bd2a2a;
+        }
+        .cancel_btn:active {
+            position:relative;
+            top:1px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Checklist App config:</h1>
+
+    <!--
+    <p>
+        <button id="save_button" class="save_btn">Save</button>
+        <button id="cancel_button" class="cancel_btn">Cancel</button>
+    </p>
+    -->
+
+    <p>
+        <label for="itemsToAdd">Items to add:</label>
+        <input type="text" name="itemsToAdd" id="itemsToAdd" autocapitalize="off"/>
+    </p>
+
+    <p>
+        <label>Vibrate on Bluetooth disconnect:</label>
+        <select id="vibrate_disconnect" name="vibrate_disconnect">
+            <option value="off">Off</option>
+            <option value="on">On</option>
+        </select>
+    </p>
+
+
+    <p>
+        <button id="save_button" class="save_btn">Save</button>
+        <button id="cancel_button" class="cancel_btn">Cancel</button>
+    </p>
+
+</body>
+</html>
+
+
+<script>
+    // Local javascript, try and avoid external dependencies even if results are not as complete as other options such as https://jquery.com/, http://zeptojs.com/
+    // http://youmightnotneedjquery.com/
+
+    // get URL query variables
+    function getQueryParam(variable, defaultValue) {
+        // Find all URL parameters
+        var query = location.search.substring(1);
+        var vars = query.split('&');
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split('=');
+
+            // If the query variable parameter is found, decode it to use and return it for use
+            if (pair[0] === variable) {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        return defaultValue || false;
+    }
+
+    //Setup to allow easy adding more options later
+    function saveOptions() {
+        var itemsToAdd = document.getElementById("itemsToAdd").value;
+        var options = {
+            'itemsToAdd': itemsToAdd
+        }
+        return options;
+    };
+
+
+
+     document.getElementById("cancel_button").addEventListener('click',
+        function () {
+            console.log("Cancel");
+
+            // Set the return URL depending on the runtime environment (emulator or Pebble Phone App)
+            var return_to = getQueryParam('return_to', 'pebblejs://close#cancel');
+            document.location.href = return_to;
+        }
+    , false);
+
+    // TODO do this for all items with the same id (e.g. allow two save buttons, top and bottom of page
+     document.getElementById("save_button").addEventListener('click',
+        function () {
+            console.log("Submit");
+            var options = saveOptions();
+
+            // Set the return URL depending on the runtime environment (emulator or Pebble Phone App)
+            var return_to = getQueryParam('return_to', 'pebblejs://close#');
+            document.location.href = return_to + encodeURIComponent(JSON.stringify(options));
+        }
+    , false);
+
+    // TODO on ready...
+    document.getElementById('itemsToAdd').value = getQueryParam('itemsToAdd', 'comma, seperated items');
+
+</script>
