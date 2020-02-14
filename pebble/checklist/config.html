@@ -76,8 +76,13 @@
     -->
 
     <p>
-        <label for="itemsToAdd">Items to add:</label>
+        <label for="itemsToAdd">Items to add (enter "export" to read from Pebble):</label>
         <input type="text" name="itemsToAdd" id="itemsToAdd" autocapitalize="off"/>
+    </p>
+
+    <p>
+        <label for="items_exported">Exported Items:</label>
+        <input type="text" name="items_exported" id="items_exported" autocapitalize="off"/>
     </p>
 
     <p>
@@ -143,6 +148,6 @@
     , false);
 
     // TODO on ready...
-    document.getElementById('itemsToAdd').value = getQueryParam('itemsToAdd', 'comma, seperated items');
+    document.getElementById('itemsToAdd').value = getQueryParam('items_exported', 'comma, seperated items');
 
 </script>
