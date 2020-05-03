@@ -36,14 +36,16 @@ https://mechanicalsoup.readthedocs.io/en/stable/tutorial.html#a-more-complete-ex
 
 Good examples.
 
+## robobrowser
+
+https://github.com/jmcarp/robobrowser
+
+
 ## requests-html
 
 Pythonic HTML Parsing for Humans http://html.python-requests.org
 
+NOTE Needs Puppeteer see https://github.com/psf/requests-html/pull/383
+
 https://github.com/psf/requests-html
-
-
-## robobrowser
-
-https://github.com/jmcarp/robobrowser
 
