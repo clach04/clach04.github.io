@@ -49,3 +49,10 @@ NOTE Needs Puppeteer see https://github.com/psf/requests-html/pull/383
 
 https://github.com/psf/requests-html
 
+
+## PhantomJS
+
+No longer supported (and old). Instead use:
+
+* Google Headless Chrome with Chrome 59.
+* Mozilla Firefox headless mode with version 55.
