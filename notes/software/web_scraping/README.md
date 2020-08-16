@@ -54,5 +54,5 @@ https://github.com/psf/requests-html
 
 No longer supported (and old). Instead use:
 
-* Google Headless Chrome with Chrome 59.
-* Mozilla Firefox headless mode with version 55.
+* Google Headless Chrome with Chrome 59. https://developers.google.com/web/updates/2017/04/headless-chrome
+* Mozilla Firefox headless mode with version 55. https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Headless_mode 
